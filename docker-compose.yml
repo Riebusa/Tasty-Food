@@ -1,0 +1,69 @@
+services:
+  mysql-server:
+    image: mysql:8.0
+    container_name: mysql-server
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: tasty_food_db
+      MYSQL_USER: tasty_food
+      MYSQL_PASSWORD: tasty_password
+    ports:
+      - "3306:3306"
+    networks:
+      - TASTY-FOOD
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  app-laravel:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: app-laravel
+    working_dir: /var/www
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    networks:
+      - TASTY-FOOD
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+  vite:
+    image: node:22-alpine
+    container_name: vite
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - TASTY-FOOD
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql-server
+    ports:
+      - "8082:80"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+    networks:
+      - TASTY-FOOD
+
+volumes:
+  db_data:
+
+networks:
+  TASTY-FOOD:
+    driver: bridge
