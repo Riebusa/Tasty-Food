@@ -22,20 +22,17 @@
         <div>
             <h4 class="text-xl font-semibold">Useful links</h4>
             <ul class="mt-6 space-y-4 text-sm font-medium">
-                <li><a href="{{ route('berita') }}">Blog</a></li>
-                <li><a href="#">Hewan</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('berita') }}">Berita</a></li>
                 <li><a href="{{ route('galeri') }}">Galeri</a></li>
-                <li><a href="#">Testimonial</a></li>
             </ul>
         </div>
 
         <div>
-            <h4 class="text-xl font-semibold">Privacy</h4>
+            <h4 class="text-xl font-semibold">Perusahaan</h4>
             <ul class="mt-6 space-y-4 text-sm font-medium">
-                <li><a href="#">Karir</a></li>
                 <li><a href="{{ route('tentang') }}">Tentang Kami</a></li>
                 <li><a href="{{ route('kontak') }}">Kontak Kami</a></li>
-                <li><a href="#">Servis</a></li>
             </ul>
         </div>
 

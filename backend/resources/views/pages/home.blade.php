@@ -36,7 +36,7 @@
     {{-- ===== 4 KARTU FITUR ===== --}}
     @if ($fitur->isNotEmpty())
         <section class="relative bg-brand-black bg-cover bg-center py-20"
-                 style="background-image: url('{{ asset('images/hero/hero-bg.jpg') }}')">
+                 style="background-image: url('{{ Pengaturan::heroBg() }}')">
             <div class="absolute inset-0 bg-black/50"></div>
 
             <div class="container-site relative grid gap-x-6 gap-y-24 sm:grid-cols-2 lg:grid-cols-4">

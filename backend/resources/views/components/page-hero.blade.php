@@ -1,7 +1,7 @@
 @props(['title'])
 
 <section class="relative h-[320px] bg-brand-black bg-cover bg-center text-white md:h-[470px]"
-         style="background-image: url('{{ asset('images/hero/hero-bg.jpg') }}')">
+         style="background-image: url('{{ \App\Models\Pengaturan::heroBg() }}')">
     <div class="absolute inset-0 bg-black/40"></div>
 
     <x-navbar theme="light" />

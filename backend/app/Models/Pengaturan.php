@@ -30,4 +30,14 @@ class Pengaturan extends Model
 
         return $path ? asset('storage/'.$path) : asset('images/placeholder.svg');
     }
+
+    /** Foto latar header. Kalau admin belum mengunggah, pakai file bawaan di public. */
+    public static function heroBg(): string
+    {
+        $path = static::get('hero_bg');
+
+        return $path
+            ? asset('storage/'.$path)
+            : asset('images/hero/hero-bg.jpg');
+    }
 }
