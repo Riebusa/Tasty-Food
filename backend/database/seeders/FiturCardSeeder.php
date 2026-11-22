@@ -17,7 +17,7 @@ class FiturCardSeeder extends Seeder
         foreach (range(1, 4) as $i) {
             FiturCard::create([
                 'judul' => 'Lorem Ipsum',
-                'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellusornare, augue eu rutrum commodo,',
+                'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo,',
                 'gambar' => $this->salin("fitur-{$i}.png", 'fitur'),
                 'urutan' => $i,
             ]);

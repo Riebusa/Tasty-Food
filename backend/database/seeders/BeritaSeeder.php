@@ -37,7 +37,7 @@ class BeritaSeeder extends Seeder
                 [
                     'judul' => "Lorem Ipsum {$i}",
                     'gambar' => $this->salin($foto, 'berita'),
-                    'ringkasan' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellusornare, augue eu rutrum commodo.',
+                    'ringkasan' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo.',
                     'isi' => $lorem."\n\n".$lorem,
                     'is_utama' => false,
                     'is_terbit' => true,
