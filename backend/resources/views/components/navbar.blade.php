@@ -8,11 +8,13 @@
         ['label' => 'Galeri',  'route' => 'galeri'],
         ['label' => 'Kontak',  'route' => 'kontak'],
     ];
+
     $textColor = $theme === 'light' ? 'text-white' : 'text-brand-black';
+    $tataLetak = $theme === 'light' ? 'justify-between' : 'justify-between md:justify-start md:gap-16';
 @endphp
 
 <header class="absolute inset-x-0 top-0 z-30 {{ $textColor }}">
-    <div class="container-site relative flex items-center justify-between py-8">
+    <div class="container-site relative flex items-center py-8 {{ $tataLetak }}">
         <a href="{{ route('home') }}" class="font-heading text-2xl font-bold uppercase tracking-wide">
             Tasty Food
         </a>
